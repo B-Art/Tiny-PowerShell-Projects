@@ -1,4 +1,4 @@
-﻿<#
+<#
 
 Author:            Doug Finke
 Email:             finked@hotmail.com
@@ -16,5 +16,4 @@ LinkedIn:          https://www.linkedin.com/in/douglasfinke/
 param(
     $name = "World"
 )
-
 'Hello, ' + $name + '!'
