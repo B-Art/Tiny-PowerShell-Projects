@@ -13,10 +13,6 @@ function Invoke-Gematria {
     param(
         $word
     )
- 
-    if (Test-Path $word) {
-        $word = Get-Content $word
-    }
 
     foreach ($line in $word) {
         $(foreach ($targetWord in $line.Split()) {
