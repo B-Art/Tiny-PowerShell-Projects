@@ -1,4 +1,4 @@
-<#
+﻿<#
 
 Author:            Doug Finke
 Email:             finked@hotmail.com
@@ -12,8 +12,10 @@ PowerShell Meetup: https://www.meetup.com/NycPowershellMeetup/
 
 LinkedIn:          https://www.linkedin.com/in/douglasfinke/
 #>
-
-param(
+[CmdletBinding()]
+param (
+    [Parameter(ValueFromPipeline, ValueFromPipelineByPropertyName)]
+    [string]
     $name = "World"
 )
 'Hello, ' + $name + '!'
