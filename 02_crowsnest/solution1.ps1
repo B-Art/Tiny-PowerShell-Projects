@@ -1,4 +1,4 @@
-<#
+﻿<#
 
 Author:            Doug Finke
 Email:             finked@hotmail.com
@@ -14,11 +14,12 @@ LinkedIn:          https://www.linkedin.com/in/douglasfinke/
 #>
 
 param(
-    [Parameter(Mandatory)]    
-    # A word
+    [Parameter(Mandatory, ValueFromPipeline, ValueFromPipelineByPropertyName)]    
+    [string[]]
     $word
 )
 
-$article = if ('aeiou'.IndexOf($word.ToLower()[0]) -ge 0) {
-    "an"
+Process {
+    ($word).foreach{
+        "Ahoy, Captain, $(('aeiou'.IndexOf($_.ToLower()[0]) -ge 0) ? "an" : "a") $($_) off the larboard bow!" }
 }
