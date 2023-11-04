@@ -12,7 +12,6 @@ PowerShell Meetup: https://www.meetup.com/NycPowershellMeetup/
 
 LinkedIn:          https://www.linkedin.com/in/douglasfinke/
 #>
-
 [CmdletBinding()]
 param (
     # Parameter help description
