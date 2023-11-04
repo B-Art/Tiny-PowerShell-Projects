@@ -13,28 +13,24 @@ PowerShell Meetup: https://www.meetup.com/NycPowershellMeetup/
 LinkedIn:          https://www.linkedin.com/in/douglasfinke/
 #>
 
-param(
-    [Switch]$Sorted
+[CmdletBinding()]
+param (
+    # Parameter help description
+    [Parameter(ValueFromPipeline, ValueFromPipelineByPropertyName, ValueFromRemainingArguments)]
+    [string[]]
+    $Word,
+    [Switch] $Sorted
 )
 
-$list = $args
-if ($Sorted) {
-    $list = $list | Sort-Object
+Begin {
+    $List = [array]($args)
 }
 
-$template = "You are bringing {0}."
-
-switch ($list.Count) {
-    1 {
-        $template -f $list -join '' 
-    }
-    2 {
-        $list[-1] = "and " + $list[-1]
-        $template -f ($list -join ' ')
-    }
-    default {
-        $list[-1] = "and " + $list[-1]
-        $template -f ($list -join ', ')
-    }
+Process {
+    $List += $Word
 }
 
+End {
+    $List = [array]($Sorted ? ($List | Sort-Object) : $List)
+    "You are bringing {0}." -f $($List.GetUpperBound(0) -eq 0 ? '' : (($List[0..$($List.GetUpperBound(0) - 1)] -join ', ') + " and ") + $List[-1])
+}
