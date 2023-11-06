@@ -21,5 +21,5 @@ param(
 
 Process {
     ($word).foreach{
-        "Ahoy, Captain, $(('aeiou'.IndexOf($_.ToLower()[0]) -ge 0) ? "an" : "a") $($_) off the larboard bow!"}
+        "Ahoy, Captain, $(('aeiou'.IndexOf($_.ToLower()[0]) -ge 0) ? "an" : "a") $($_) off the larboard bow!" }
 }
