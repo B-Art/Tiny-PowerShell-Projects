@@ -30,14 +30,10 @@ $map = @{
     '0' = '5'
 }
 
+$number = $true ? "wel" : "niet"
+
 -join (
-    $number.ToCharArray() | ForEach-Object {
-        $key = $_.ToString()
-        if ($map.ContainsKey($key)) {
-            $map.$key 
-        } 
-        else {
-            $key
-        }
+    $number.ToCharArray().ForEach{
+        $(($map.ContainsKey($_)) ? $map.$key : $key)
     }
 )

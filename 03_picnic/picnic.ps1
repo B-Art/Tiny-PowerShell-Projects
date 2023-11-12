@@ -35,7 +35,7 @@ Process {
 
 
 End {
-    $List = [array]($Sorted ? ($List | Sort-Object) : $List)
+    $List = [array]($($Sorted ? ($List | Sort-Object) : $List))
     $("You are bringing {0}." -f $(
             ($List.GetUpperBound(0) -eq 0 ? '' : $($List[0..$($List.GetUpperBound(0) - 1)] -Join ', ') + " and ") +
             $List[-1] <#-replace 'Pester,  and', '' | Remove-StringSpecialCharacter -SpecialCharacterToKeep ',', ' '#>
