@@ -30,7 +30,11 @@ Begin {
 }
 
 Process {
-    $List += $Word
+    If (($Word -eq 'System.Management.Automation.OrderedHashtable')) {
+        $Sorted = $true
+    } else {
+        $List += $Word
+    } 
 }
 
 
